@@ -1,0 +1,5 @@
+command for avrdude with usbasp:
+
+ -> avrdude -p m8 -P usb -c usbasp -B 8.68 -U flash:w:<<filename>>
+
+important: badrate (-B) of 8.68
