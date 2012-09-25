@@ -1,4 +1,5 @@
 // Ansteuerung eines HD44780 kompatiblen LCD im 4-Bit-Interfacemodus
+// driver for a HD44780 compatible LCD with 4-bit-control
 // http://www.mikrocontroller.net/articles/AVR-GCC-Tutorial/LCD-Ansteuerung
 //
 
@@ -7,6 +8,7 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 // Hier die verwendete Taktfrequenz in Hz eintragen, wichtig!
+// enter here clocking frequency
 
 #ifndef F_CPU
 #define F_CPU 3686400
@@ -16,6 +18,7 @@
 // Pinbelegung für das LCD, an verwendete Pins anpassen
 // Alle LCD Pins müssen an einem Port angeschlossen sein und die 4
 // Datenleitungen müssen auf aufeinanderfolgenden Pins liegen
+// pin ports for data
 
 //  LCD DB4-DB7 <-->  PORTD Bit PD0-PD3
 #define LCD_PORT      PORTD
@@ -25,7 +28,7 @@
 //  LCD RS      <-->  PORTD Bit PD4     (RS: 1=Data, 0=Command)
 #define LCD_RS        PD4
 
-//  LCD EN      <-->  PORTD Bit PD5     (EN: 1-Impuls für Daten)
+//  LCD EN      <-->  PORTD Bit PD5     (EN: 1-impuls for data)
 #define LCD_EN        PD5
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -48,6 +51,7 @@
 // Zeilendefinitionen des verwendeten LCD
 // Die Einträge hier sollten für ein LCD mit einer Zeilenlänge von 16 Zeichen passen
 // Bei anderen Zeilenlängen müssen diese Einträge angepasst werden
+// definitions for column and rows, here for 16x2 display
 
 #define LCD_DDADR_LINE1         0x00
 #define LCD_DDADR_LINE2         0x40
@@ -320,3 +324,4 @@ void lcd_generatechar( uint8_t code, const uint8_t *data )
         lcd_data( data[i] );
     }
 }
+
