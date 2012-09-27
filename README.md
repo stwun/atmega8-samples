@@ -7,6 +7,7 @@ Functions:
  - LCD with HD44780 controller
  - ADC
  - read/write pins (IO control)
+ - PWM
 
 HowTo:
  - avrdude&usbasp
